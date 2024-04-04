@@ -8,6 +8,7 @@ namespace Biblioteca.Classes
 {
     internal class ControllerLivros
     {
+
         public Dictionary<int, Livro> livros { get; set; }
 
         public ControllerLivros() 
@@ -23,8 +24,7 @@ namespace Biblioteca.Classes
                 Thread.Sleep(1000);
                 livros.Add(livro.Key, livro);
                 Console.WriteLine("Livro cadastrado com sucesso");
-                Console.WriteLine($"\n{livro.ToString()}");
-
+                Console.WriteLine(livro.ToString());
             }
             catch (Exception ex)
             {
@@ -85,6 +85,32 @@ namespace Biblioteca.Classes
                 Console.ReadKey();
                 return livros;
             }
+        }
+
+        public Dictionary<int, Livro> ExcluirLivro(int key) 
+        { 
+            if(livros.ContainsKey(key))
+            {
+                livros.Remove(key);
+                Console.WriteLine("Livro excluido com sucesso...");
+            }
+            else
+            {
+                Console.WriteLine("Livro não existe na lista...");
+            }
+            Console.ReadKey();
+            return livros;
+            
+        }
+
+        public void VerTodosOsLivros()
+        {
+            foreach (var livro in livros)
+            {
+                string livroInfo = livro.Value.ToString();
+                Console.WriteLine($"\n{livroInfo}");
+            }
+            Console.ReadKey();
         }
 
         

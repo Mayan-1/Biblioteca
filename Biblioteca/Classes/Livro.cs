@@ -8,18 +8,18 @@ namespace Biblioteca.Classes
 {
     internal class Livro
     {
-        public int Key { get; set; }
+        public int Key { get; private set; }
         public string? Nome { get; set; }
         public string? Autor { get; set; }
         public DateTime DataLancamento { get; set; }
         public int QuantidadePaginas { get; set; }
         public string Genero { get; set; }
 
-        private int contadorDeInstancias = 0;
+        private Random random = new Random();
 
         public Livro(string nome, string autor, DateTime dataLancamento, int quantidadePaginas, string genero)
         {
-            Key = ++contadorDeInstancias;
+            Key = random.Next(101);
             Nome = nome;
             Autor = autor;
             DataLancamento = dataLancamento;
