@@ -3,12 +3,14 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Biblioteca.Models;
+using Biblioteca.Repositories;
 
 namespace Biblioteca.Classes
 {
     internal class Menu
     {
-        ControllerLivros controllerLivros = new ControllerLivros();
+        LivrosRepository controllerLivros = new LivrosRepository();
 
 
         public void ChamarMenu()

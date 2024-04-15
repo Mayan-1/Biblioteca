@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Biblioteca.Classes
+namespace Biblioteca.Models
 {
     internal class Livro
     {
@@ -15,11 +15,9 @@ namespace Biblioteca.Classes
         public int QuantidadePaginas { get; set; }
         public string Genero { get; set; }
 
-        private Random random = new Random();
-
-        public Livro(string nome, string autor, DateTime dataLancamento, int quantidadePaginas, string genero)
+        public Livro(int key, string nome, string autor, DateTime dataLancamento, int quantidadePaginas, string genero)
         {
-            Key = random.Next(101);
+            Key = key;
             Nome = nome;
             Autor = autor;
             DataLancamento = dataLancamento;
@@ -33,10 +31,10 @@ namespace Biblioteca.Classes
                     $"\n{Nome}" +
                     $"\n{DataLancamento.ToString("dd/MM/yyyy")}" +
                     $"\nAutor - {Autor}" +
-                    $"\nGenêro - {Genero}" + 
+                    $"\nGenêro - {Genero}" +
                     $"\n{QuantidadePaginas} páginas";
-
         }
+
 
 
 
